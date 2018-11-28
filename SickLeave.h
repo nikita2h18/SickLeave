@@ -19,7 +19,7 @@ public:
     SickLeave() {}
 
     void getPerson() {
-        cout << employee.getName() << " " << employee.getPatronymic() << " " << employee.getSurname() << endl;
+        cout << employee.getSurname() << " " << employee.getName() << " " << employee.getPatronymic() << endl;
         cout << "Пол: " << employee.getSex() << endl;
         cout << "Начало больничного: ";
         start.getDate();

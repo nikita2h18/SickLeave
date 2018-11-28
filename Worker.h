@@ -4,10 +4,11 @@
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-vector<SickLeave*> sickLeaves;
-vector<UserCredentials*> users;
+vector<SickLeave *> sickLeaves;
+vector<UserCredentials *> users;
 
 class Worker {
 public:
@@ -29,6 +30,26 @@ public:
                 }
                 if (count == word.size()) {
                     sickLeaves[i]->getPerson();
+                }
+            }
+        }
+    }
+
+    void deleteBySurname() {
+        string word;
+        cin.ignore();
+
+        cout << "Введите фамилию" << endl;
+        getline(cin, word);
+
+        for (int i = 0; i < sickLeaves.size(); i++) {
+            int count = 0;
+            for (int j = 0; j < word.size(); j++) {
+                if (word[j] == sickLeaves[i]->getSurname()[j]) {
+                    count++;
+                }
+                if (count == word.size()) {
+                    sickLeaves.erase(sickLeaves.begin() + i);
                 }
             }
         }

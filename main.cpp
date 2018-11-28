@@ -61,6 +61,7 @@ void usersMenu(Worker *worker) {
     cout << "2. Просмотр данных" << endl;
     cout << "3. Поиск и фильтрация" << endl;
     cout << "4. Сортировка" << endl;
+    cout << "5. Удаление" << endl;
     cout << "0. Выход в главное меню" << endl;
 
     int value;
@@ -84,6 +85,12 @@ void usersMenu(Worker *worker) {
         }
         case 4: {
             worker->sortPersons();
+            worker->showInfo();
+            usersMenu(worker);
+            break;
+        }
+        case 5: {
+            worker->deleteBySurname();
             worker->showInfo();
             usersMenu(worker);
             break;
