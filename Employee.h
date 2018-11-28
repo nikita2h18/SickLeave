@@ -13,10 +13,19 @@ private:
     string surname;
     string patronymic;
     string sex;
+    int salaryPerDay;
 
 public:
 
     Employee() {}
+
+    int getSalaryPerDay() const {
+        return salaryPerDay;
+    }
+
+    void setSalaryPerDay(int salaryPerDay) {
+        this->salaryPerDay = salaryPerDay;
+    }
 
     string getName() {
         return name;

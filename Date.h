@@ -38,6 +38,34 @@ public:
         cout << this->day << "." << this->month << "." << this->year << endl;
     }
 
+    int getDay() {
+        return day;
+    }
+
+    int getMonth() {
+        return month;
+    }
+
+    int getYear() {
+        return year;
+    }
+
+    int getMonthDayCount() {
+        validDt = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        if (month % 4 == 0) {
+            validDt[1] = 29;
+        } else {
+            validDt[1] = 28;
+        }
+
+        for (int i = 0; i < 12; i++) {
+            if (month == i + 1) {
+                return validDt[i];
+            }
+        }
+    }
+
     bool isValid() {
 
         validDt = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -62,6 +90,19 @@ public:
 
         return true;
     }
+
+    void setDate(Date *date) {
+        date->setDay();
+        date->setMonth();
+        date->setYear();
+
+        if(!date->isValid()) {
+            cout << "Ошибка при вводе даты, попробуйте снова: " << endl;
+            setDate(date);
+        }
+    }
+
+
 };
 
 
