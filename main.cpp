@@ -59,9 +59,12 @@ void usersMenu(Worker *worker) {
     cout << "---------------Меню пользователя------------------" << endl;
     cout << "1. Ввод информации" << endl;
     cout << "2. Просмотр данных" << endl;
-    cout << "3. Поиск и фильтрация" << endl;
-    cout << "4. Сортировка" << endl;
-    cout << "5. Удаление" << endl;
+    cout << "3. Поиск и фильтрация за период" << endl;
+    cout << "4. Список больничных конкретного сотрудника" << endl;
+    cout << "5. Сортировка" << endl;
+    cout << "6. Удаление" << endl;
+    cout << "7. Запись в файл" << endl;
+    cout << "8. Вывод из файлa" << endl;
     cout << "0. Выход в главное меню" << endl;
 
     int value;
@@ -79,26 +82,43 @@ void usersMenu(Worker *worker) {
             break;
         }
         case 3: {
-            worker->searchAndFilter();
+            worker->searchAndFilterByPeriod();
             usersMenu(worker);
             break;
         }
         case 4: {
+            worker->searchSickLeaves();
+            usersMenu(worker);
+            break;
+        }
+        case 5: {
             worker->sortPersons();
             worker->showInfo();
             usersMenu(worker);
             break;
         }
-        case 5: {
+        case 6: {
             worker->deleteBySurname();
             worker->showInfo();
             usersMenu(worker);
             break;
         }
+
+        case 7: {
+            worker->fileInput();
+            usersMenu(worker);
+        }
+
+        case 8: {
+            worker->fileOutput();
+            usersMenu(worker);
+        }
+
         case 0: {
             mainMenu(worker);
             break;
         }
+        default:break;
     }
 }
 

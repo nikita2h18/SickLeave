@@ -1,7 +1,7 @@
 #ifndef SICKLEAVES_SICKLEAVE_H
 #define SICKLEAVES_SICKLEAVE_H
 
-
+#include <iostream>
 #include <iomanip>
 #include "Employee.h"
 #include "Date.h"
@@ -19,13 +19,13 @@ public:
     SickLeave() {}
 
     void getPerson() {
-        cout << employee.getSurname() << " " << employee.getName() << " " << employee.getPatronymic() << endl;
-        cout << "Пол: " << employee.getSex() << endl;
-        cout << "Начало больничного: ";
-        start.getDate();
-        cout << "Конец больничного: ";
-        end.getDate();
-        cout << "Выплатить: " << getSalary() << "руб" << endl << endl;
+        cout << setw(15) << employee.getSurname() << '|';
+        cout << setw(15) << employee.getName() << '|';
+        cout << setw(15) << employee.getPatronymic() << '|';
+        cout << setw(15) << employee.getSex() << '|';
+        start.getTableDate();
+        end.getTableDate();
+        cout << setw(15) << getSalary() << '|' << endl;
     }
 
     string getSurname() {
@@ -34,6 +34,14 @@ public:
 
     string getName() {
         return employee.getName();
+    }
+
+    string getPatronymic() {
+        return  employee.getPatronymic();
+    }
+
+    string getSex() {
+        return employee.getSex();
     }
 
     void setEmployee(Employee employee) {
@@ -54,6 +62,30 @@ public:
 
     void setEnd(Date end) {
         this->end = end;
+    }
+
+    int getDayStart() {
+        return start.getDay();
+    }
+
+    int getMonthStart() {
+        return start.getMonth();
+    }
+
+    int getYearStart() {
+        return start.getYear();
+    }
+
+    int getDayEnd() {
+        return end.getDay();
+    }
+
+    int getMonthEnd() {
+        return end.getMonth();
+    }
+
+    int getYearEnd() {
+        return end.getYear();
     }
 
     int daysCount() {

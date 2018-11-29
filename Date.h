@@ -2,6 +2,8 @@
 #define SICKLEAVES_DATE_H
 
 
+#include <fstream>
+
 vector<int> validDt;
 using namespace std;
 
@@ -36,6 +38,10 @@ public:
 
     void getDate() {
         cout << this->day << "." << this->month << "." << this->year << endl;
+    }
+
+    void getTableDate() {
+        cout << setw(12) << this->day << "." << this->month << "." << this->year << '|';
     }
 
     int getDay() {
